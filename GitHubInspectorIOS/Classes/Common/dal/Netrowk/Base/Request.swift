@@ -1,0 +1,62 @@
+//
+//  Request.swift
+//  GitHubInspectorIOS
+//
+//  Created by Vladimir Kalinichenko on 2/25/18.
+//  Copyright © 2018 Volodya wovan. All rights reserved.
+//
+
+import Foundation
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
+protocol Request {
+    associatedtype Response
+    var url: URL { get }
+    var method: HTTPMethod { get }
+    var body: Data? { get }
+    var queryParams: [String: String] { get }
+}
+
+// MARK: default values
+extension Request {
+    var body: Data? {
+        return nil
+    }
+    
+    var queryParams: [URLQueryItem] {
+        return []
+    }
+}
+
+// MARK: To URLRequest converting
+extension Request {
+    
+    func querryItems() -> [URLQueryItem] {
+        return queryParams.map { URLQueryItem(name: $0, value: $1) }
+    }
+    
+    func urlRequest() -> URLRequest {
+        let url: URL
+        if queryParams.isEmpty {
+            url = self.url
+        } else {
+            var components = URLComponents(url: self.url, resolvingAgainstBaseURL: true)
+            components?.queryItems?.append(contentsOf: querryItems())
+            if let urlWithParams = components?.url {
+                url = urlWithParams
+            } else {
+                url = self.url
+            }
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.httpBody = body
+        return urlRequest
+    }
+}
