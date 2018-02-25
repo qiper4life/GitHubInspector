@@ -15,6 +15,14 @@ struct GitHubRepositorySearchRequest: RepositorySearchRequest, Equatable {
     let sort: String?
     let order: String?
     
+    init(repositoryRequest: RepositorySearchRequest) {
+        self.init(query: repositoryRequest.query,
+                  page: repositoryRequest.page,
+                  perPage: repositoryRequest.perPage,
+                  sort: repositoryRequest.sort,
+                  order: repositoryRequest.order)
+    }
+    
     init(query: String,
          page: Int,
          perPage: Int = 15,

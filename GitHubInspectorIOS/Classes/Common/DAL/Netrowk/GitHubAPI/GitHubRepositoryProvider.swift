@@ -9,8 +9,22 @@
 import Foundation
 
 class GitHubRepositoryProvider: RepositoryProvider {
+    let gitHubClient: GitHubAPIClient
+    
+    init(gitHubClient: GitHubAPIClient = .default) {
+        self.gitHubClient = gitHubClient
+    }
+    
     func findRepos(for request: RepositorySearchRequest,
-                   _ completion: @escaping (Result<Repository>) -> ()) {
-        
+                   _ completion: @escaping (Result<[Repository]>) -> ()) {
+        let searchRequest = GitHubRepositorySearchRequest(repositoryRequest: request)
+        gitHubClient.performRequest(searchRequest) { result in
+            switch result {
+            case .value(let reposPack):
+                completion(.value(reposPack.items))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
     }
 }

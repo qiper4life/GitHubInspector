@@ -10,5 +10,5 @@ import Foundation
 
 protocol RepositoryProvider {
     func findRepos(for request: RepositorySearchRequest,
-                   _ completion: @escaping (Result<Repository>) -> ())
+                   _ completion: @escaping (Result<[Repository]>) -> ())
 }

@@ -13,7 +13,7 @@ class GitHubAPIClient: APIClient {
     
     static let `default`: GitHubAPIClient = GitHubAPIClient()
     
-    init() {
-        self.urlSession = URLSession(configuration: .default)
+    init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
     }
 }
