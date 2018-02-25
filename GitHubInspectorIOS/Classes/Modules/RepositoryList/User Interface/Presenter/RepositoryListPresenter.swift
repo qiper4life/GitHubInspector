@@ -8,26 +8,34 @@
 
 import Foundation
 
-class RepositoryListPresenter {
-    let repositoryListInteractor: RepositoryListInteractorInput
-//    let wireframe: Any // put wirefreame here
-//    let userInterface: RepositoryListView
+class RepositoryListPresenter: RepositoryListModuleInterface {
+    let interactor: RepositoryListInteractorInput
+    let view: RepositoryListView
+    private var displayData: RepositoryListDisplayData
     
-    func педаль() {
+    func updateView() {
 //        repositoryListInteractor.searchRepos(for: <#T##RepositorySearchRequest#>)
     }
     
-    init(repositoryListInteractor: RepositoryListInteractorInput) {
-        self.repositoryListInteractor = repositoryListInteractor
+    func cancelSearh() {
+        
+    }
+    
+    init(interector: RepositoryListInteractorInput,
+         view: RepositoryListView) {
+        self.interactor = interector
+        self.view = view
+        self.displayData = RepositoryListDisplayData()
     }
 }
 
 extension RepositoryListPresenter: RepositoryListInteractorOutput {
     func foundRepos(_ repos: [Repository], for request: RepositorySearchRequest) {
-//        view.takeThis
+        self.displayData.addRepositories(repos)
+        view.showData(displayData)
     }
     
     func errorWhileLookingForRepos(_ error: Error, for request: RepositorySearchRequest) {
-//        view.takeThisTootwo
+        view.showError(error)
     }
 }
