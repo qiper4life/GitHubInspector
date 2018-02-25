@@ -14,4 +14,5 @@ protocol RepositoryListInteractorInput {
 
 protocol RepositoryListInteractorOutput: class {
     func foundRepos(_ repos: [Repository], for request: RepositorySearchRequest)
+    func errorWhileLookingForRepos(_ error: Error, for request: RepositorySearchRequest)
 }
