@@ -36,7 +36,7 @@ extension GitHubRepositorySearchRequest: Request {
     }
     
     var method: HTTPMethod {
-        return .post
+        return .get
     }
     
     var queryParams: [String: String] {

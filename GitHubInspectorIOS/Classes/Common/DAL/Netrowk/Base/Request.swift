@@ -15,6 +15,7 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+// TO DO: implement: headers, shcema, host, path, headers, etc...
 protocol Request {
     associatedtype Response
     var url: URL { get }
@@ -58,7 +59,7 @@ extension Request {
             url = self.url
         } else {
             var components = URLComponents(url: self.url, resolvingAgainstBaseURL: true)
-            components?.queryItems?.append(contentsOf: querryItems())
+            components?.queryItems = querryItems()
             if let urlWithParams = components?.url {
                 url = urlWithParams
             } else {

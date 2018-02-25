@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				378A1B1C2042FAC00078FF0D /* Common */,
-				378A1B102042F1590078FF0D /* dal */,
+				378A1B102042F1590078FF0D /* DAL */,
 				378A1B0A2042F0390078FF0D /* Entity */,
 			);
 			path = Common;
@@ -123,13 +123,13 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		378A1B102042F1590078FF0D /* dal */ = {
+		378A1B102042F1590078FF0D /* DAL */ = {
 			isa = PBXGroup;
 			children = (
 				378A1B122042F1680078FF0D /* Netrowk */,
 				378A1B112042F1620078FF0D /* Storage */,
 			);
-			path = dal;
+			path = DAL;
 			sourceTree = "<group>";
 		};
 		378A1B112042F1620078FF0D /* Storage */ = {

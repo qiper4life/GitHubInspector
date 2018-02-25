@@ -9,8 +9,11 @@
 import Foundation
 
 class GitHubAPIClient: APIClient {
+    let urlSession: URLSession
     
-    var urlSession: URLSession {
-        return URLSession()
+    static let `default`: GitHubAPIClient = GitHubAPIClient()
+    
+    init() {
+        self.urlSession = URLSession(configuration: .default)
     }
 }
