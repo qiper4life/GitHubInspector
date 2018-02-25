@@ -21,6 +21,7 @@ protocol Request {
     var method: HTTPMethod { get }
     var body: Data? { get }
     var queryParams: [String: String] { get }
+    func reponse(from data: Data) -> Response?
 }
 
 // MARK: default values
@@ -34,9 +35,19 @@ extension Request {
     }
 }
 
+// MARK: building reponse from URL response data
+extension Request where Response: RawDataInitable {
+    func reponse(from data: Data) -> Response? {
+        guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+            let json = jsonData as? [AnyHashable: Any] else {
+                return nil
+        }
+        return Response(json: json)
+    }
+}
+
 // MARK: To URLRequest converting
 extension Request {
-    
     func querryItems() -> [URLQueryItem] {
         return queryParams.map { URLQueryItem(name: $0, value: $1) }
     }

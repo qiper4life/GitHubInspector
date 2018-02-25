@@ -29,7 +29,7 @@ struct GitHubRepositorySearchRequest {
 }
 
 extension GitHubRepositorySearchRequest: Request {
-    typealias Response = GitHubRepository
+    typealias Response = GitHubRepositoryPack
     
     var url: URL {
         return URL(string: "http://api.github.com/search/repositories")!
@@ -49,5 +49,3 @@ extension GitHubRepositorySearchRequest: Request {
         return params
     }
 }
-
-
