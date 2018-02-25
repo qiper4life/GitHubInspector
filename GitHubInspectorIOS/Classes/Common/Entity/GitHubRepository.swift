@@ -15,3 +15,13 @@ struct GitHubRepository: Repository, Codable {
     var url: URL
     var score: Double
 }
+
+extension GitHubRepository: Equatable {
+    static func ==(lhs: GitHubRepository, rhs: GitHubRepository) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.description == rhs.description &&
+            lhs.url == rhs.url &&
+            lhs.score == rhs.score
+    }
+}
