@@ -18,6 +18,9 @@
 		3754B76D20434DB9009A4E2F /* RepositoryListDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B76C20434DB9009A4E2F /* RepositoryListDisplayData.swift */; };
 		3754B76F2043658D009A4E2F /* RepositoryListModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B76E2043658D009A4E2F /* RepositoryListModuleInterface.swift */; };
 		3754B7712043673A009A4E2F /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B7702043673A009A4E2F /* RepositoryListViewController.swift */; };
+		3754B77820437E69009A4E2F /* RepositoryListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B77720437E69009A4E2F /* RepositoryListWireframe.swift */; };
+		3754B77A20438111009A4E2F /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B77920438111009A4E2F /* RootWireframe.swift */; };
+		3754B77C20438253009A4E2F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B77B20438253009A4E2F /* AppDependencies.swift */; };
 		378A1B0D2042F0590078FF0D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0C2042F0590078FF0D /* Repository.swift */; };
 		378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */; };
 		378A1B152042F1A30078FF0D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B142042F1A30078FF0D /* Request.swift */; };
@@ -56,6 +59,9 @@
 		3754B76C20434DB9009A4E2F /* RepositoryListDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListDisplayData.swift; sourceTree = "<group>"; };
 		3754B76E2043658D009A4E2F /* RepositoryListModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListModuleInterface.swift; sourceTree = "<group>"; };
 		3754B7702043673A009A4E2F /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		3754B77720437E69009A4E2F /* RepositoryListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListWireframe.swift; sourceTree = "<group>"; };
+		3754B77920438111009A4E2F /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		3754B77B20438253009A4E2F /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		378A1B0C2042F0590078FF0D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		378A1B142042F1A30078FF0D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		3754B7582043430D009A4E2F /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				3754B77620437E50009A4E2F /* Wireframe */,
 				3754B766204348C4009A4E2F /* Presenter */,
 				3754B76920434C37009A4E2F /* View */,
 			);
@@ -191,6 +198,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3754B77620437E50009A4E2F /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				3754B77720437E69009A4E2F /* RepositoryListWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		3754B77D204383E6009A4E2F /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				3754B77E204383EF009A4E2F /* Wireframe */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		3754B77E204383EF009A4E2F /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				3754B77920438111009A4E2F /* RootWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
 		378A1B082042F0210078FF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +234,7 @@
 		378A1B092042F02A0078FF0D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3754B77D204383E6009A4E2F /* UserInterface */,
 				378A1B1C2042FAC00078FF0D /* Common */,
 				378A1B102042F1590078FF0D /* DAL */,
 				378A1B0A2042F0390078FF0D /* Entity */,
@@ -305,6 +337,7 @@
 			children = (
 				378A1B082042F0210078FF0D /* Classes */,
 				378E51B1203CD99500BE736D /* AppDelegate.swift */,
+				3754B77B20438253009A4E2F /* AppDependencies.swift */,
 				378E51B5203CD99500BE736D /* Main.storyboard */,
 				378E51B8203CD99500BE736D /* Assets.xcassets */,
 				378E51BA203CD99500BE736D /* LaunchScreen.storyboard */,
@@ -535,6 +568,7 @@
 			files = (
 				378A1B1A2042F9F20078FF0D /* APIClient.swift in Sources */,
 				3754B76120434427009A4E2F /* RepositoryProvider.swift in Sources */,
+				3754B77A20438111009A4E2F /* RootWireframe.swift in Sources */,
 				378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */,
 				378A1B26204308F90078FF0D /* GitHubRepositoryPack.swift in Sources */,
 				3754B7712043673A009A4E2F /* RepositoryListViewController.swift in Sources */,
@@ -544,9 +578,11 @@
 				3754B7632043448E009A4E2F /* GitHubRepositoryProvider.swift in Sources */,
 				378E51B2203CD99500BE736D /* AppDelegate.swift in Sources */,
 				378A1B182042F3290078FF0D /* GitHubRepositorySearchRequest.swift in Sources */,
+				3754B77C20438253009A4E2F /* AppDependencies.swift in Sources */,
 				3754B75E2043435B009A4E2F /* RepositoryListInteractor.swift in Sources */,
 				3754B765204344EB009A4E2F /* RepositorySearchRequest.swift in Sources */,
 				3754B768204348D9009A4E2F /* RepositoryListPresenter.swift in Sources */,
+				3754B77820437E69009A4E2F /* RepositoryListWireframe.swift in Sources */,
 				378A1B202042FAE70078FF0D /* GitHubApiClient.swift in Sources */,
 				3754B76F2043658D009A4E2F /* RepositoryListModuleInterface.swift in Sources */,
 				378A1B1E2042FAC90078FF0D /* Result.swift in Sources */,

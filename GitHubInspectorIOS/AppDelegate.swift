@@ -13,27 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        return storyboard
-    }
-
-    // Hold it, for a while
-    var presenter: RepositoryListPresenter? = nil
+    let dependencies = AppDependencies()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // Put wireframe here
-        let reposView = mainStoryboard().instantiateViewController(withIdentifier: "RepositoryListViewController") as! RepositoryListViewController
-        let reposProvider: RepositoryProvider = GitHubRepositoryProvider() // for now
-        let interector = RepositoryListInteractor(repositoryProvider: reposProvider)
-        let reposPresenter = RepositoryListPresenter(interector: interector, view: reposView)
-        interector.output = reposPresenter
-        self.presenter = reposPresenter
-        reposView.eventHandler = reposPresenter
-        window?.rootViewController = reposView
-        
+        dependencies.reposListWireframe.showRepositoryListView(from: window!)
         return true
     }
 
