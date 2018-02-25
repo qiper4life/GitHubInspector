@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GitHubRepositorySearchRequest {
+struct GitHubRepositorySearchRequest: RepositorySearchRequest, Equatable {
     let query: String
     let page: Int
     let perPage: Int
@@ -25,6 +25,16 @@ struct GitHubRepositorySearchRequest {
         self.perPage = perPage
         self.sort = sort
         self.order = order
+    }
+}
+
+extension GitHubRepositorySearchRequest {
+    static func ==(lhs: GitHubRepositorySearchRequest, rhs: GitHubRepositorySearchRequest) -> Bool {
+        return lhs.query == rhs.query &&
+            lhs.page == rhs.page &&
+            lhs.perPage == rhs.perPage &&
+            lhs.sort == rhs.sort &&
+            lhs.order == rhs.order
     }
 }
 
