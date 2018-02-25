@@ -9,7 +9,6 @@
 import Foundation
 
 class RepositoryListDisplayData {
-    // Parallel reading, barrier writing
     private let syncQueue = DispatchQueue(label: "com.vladimirWowan.GitHubInspectorIOS.SynchronizedDisplayData",
                                           attributes: .concurrent)
     
@@ -17,7 +16,7 @@ class RepositoryListDisplayData {
     
     var repositories: [Repository] {
         var repos: [Repository]!
-        syncQueue.async {
+        syncQueue.sync {
             repos = self._repositories
         }
         return repos

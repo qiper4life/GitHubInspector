@@ -12,7 +12,7 @@ protocol RepositoryListInteractorInput {
     func searchRepos(for request: RepositorySearchRequest)
 }
 
-protocol RepositoryListInteractorOutput: class {
+protocol RepositoryListInteractorOutput {
     func foundRepos(_ repos: [Repository], for request: RepositorySearchRequest)
     func errorWhileLookingForRepos(_ error: Error, for request: RepositorySearchRequest)
 }

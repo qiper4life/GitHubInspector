@@ -13,19 +13,30 @@ class RepositoryListPresenter: RepositoryListModuleInterface {
     let view: RepositoryListView
     private var displayData: RepositoryListDisplayData
     
-    func updateView() {
-//        repositoryListInteractor.searchRepos(for: <#T##RepositorySearchRequest#>)
-    }
-    
-    func cancelSearh() {
-        
-    }
+    var counter: Int = 0
     
     init(interector: RepositoryListInteractorInput,
          view: RepositoryListView) {
         self.interactor = interector
         self.view = view
         self.displayData = RepositoryListDisplayData()
+    }
+    
+    func updateView() {
+        getNextPage()
+    }
+    
+    func getNextPage() {
+        let request1 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
+        counter += 1
+        let request2 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
+        counter += 1
+        interactor.searchRepos(for: request1)
+        interactor.searchRepos(for: request2)
+    }
+    
+    func cancelSearh() {
+        // implement
     }
 }
 

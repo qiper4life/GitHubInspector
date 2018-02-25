@@ -9,7 +9,7 @@
 import Foundation
 
 class RepositoryListInteractor: RepositoryListInteractorInput {
-    weak var output: RepositoryListInteractorOutput?
+    weak var output: (AnyObject & RepositoryListInteractorOutput)?
     
     let repositoryProvider: RepositoryProvider
     init(repositoryProvider: RepositoryProvider) {
