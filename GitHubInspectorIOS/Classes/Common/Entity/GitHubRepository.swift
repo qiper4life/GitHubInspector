@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct GitHubRepository: Repository {
+struct GitHubRepository: Repository, Codable {
+    var id: Int
     var name: String
-    var description: String
+    var description: String?
     var url: URL
     var score: Double
 }

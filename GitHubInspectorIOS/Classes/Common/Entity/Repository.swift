@@ -10,7 +10,7 @@ import Foundation
 
 protocol Repository {
     var name: String { get }
-    var description: String { get }
+    var description: String? { get }
     var url: URL { get }
     var score: Double { get }
 }

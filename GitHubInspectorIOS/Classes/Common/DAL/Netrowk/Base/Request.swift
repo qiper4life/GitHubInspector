@@ -37,13 +37,19 @@ extension Request {
 }
 
 // MARK: building reponse from URL response data
-extension Request where Response: RawDataInitable {
+extension Request where Response: Codable {
     func reponse(from data: Data) -> Response? {
-        guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
-            let json = jsonData as? [AnyHashable: Any] else {
+        let jsonDecoder = JSONDecoder()
+        do {
+            let response = try jsonDecoder.decode(Response.self, from: data)
+            return response
+        } catch {
+            #if DEBUG
+                fatalError("Couldn't parse results of expected type \(Response.self) with error: \(error)")
+            #else
                 return nil
+            #endif
         }
-        return Response(json: json)
     }
 }
 

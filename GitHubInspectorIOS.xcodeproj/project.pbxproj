@@ -15,7 +15,6 @@
 		378A1B1A2042F9F20078FF0D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B192042F9F20078FF0D /* APIClient.swift */; };
 		378A1B1E2042FAC90078FF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B1D2042FAC90078FF0D /* Result.swift */; };
 		378A1B202042FAE70078FF0D /* GitHubApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B1F2042FAE70078FF0D /* GitHubApiClient.swift */; };
-		378A1B242042FFC30078FF0D /* RawDataInitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B232042FFC30078FF0D /* RawDataInitable.swift */; };
 		378A1B26204308F90078FF0D /* GitHubRepositoryPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B25204308F90078FF0D /* GitHubRepositoryPack.swift */; };
 		378E51B2203CD99500BE736D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E51B1203CD99500BE736D /* AppDelegate.swift */; };
 		378E51B4203CD99500BE736D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E51B3203CD99500BE736D /* ViewController.swift */; };
@@ -45,7 +44,6 @@
 		378A1B192042F9F20078FF0D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		378A1B1D2042FAC90078FF0D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		378A1B1F2042FAE70078FF0D /* GitHubApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiClient.swift; sourceTree = "<group>"; };
-		378A1B232042FFC30078FF0D /* RawDataInitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataInitable.swift; sourceTree = "<group>"; };
 		378A1B25204308F90078FF0D /* GitHubRepositoryPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryPack.swift; sourceTree = "<group>"; };
 		378E51AE203CD99500BE736D /* GitHubInspectorIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubInspectorIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378E51B1203CD99500BE736D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				378A1B1D2042FAC90078FF0D /* Result.swift */,
-				378A1B232042FFC30078FF0D /* RawDataInitable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 			files = (
 				378A1B1A2042F9F20078FF0D /* APIClient.swift in Sources */,
 				378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */,
-				378A1B242042FFC30078FF0D /* RawDataInitable.swift in Sources */,
 				378A1B26204308F90078FF0D /* GitHubRepositoryPack.swift in Sources */,
 				378E51B4203CD99500BE736D /* ViewController.swift in Sources */,
 				378A1B152042F1A30078FF0D /* Request.swift in Sources */,

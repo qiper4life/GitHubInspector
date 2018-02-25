@@ -11,6 +11,7 @@ import Foundation
 enum APIClientError: Error {
     case urlRequestError(Error)
     case noResopnseFromURLRequest(URLRequest)
+    case cannotParseResponse(URLRequest, Data?)
 }
 
 protocol APIClient {
@@ -30,6 +31,11 @@ extension APIClient {
                 completion(.error(APIClientError.noResopnseFromURLRequest(urlRequest)))
                 return
             }
+            guard let response = reqeust.reponse(from: data) else {
+                completion(.error(APIClientError.cannotParseResponse(urlRequest, data)))
+                return
+            }
+            completion(.value(response))
         }
         task.resume()
     }

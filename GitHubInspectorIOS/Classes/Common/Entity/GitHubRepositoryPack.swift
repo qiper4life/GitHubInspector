@@ -8,10 +8,14 @@
 
 import Foundation
 
-struct GitHubRepositoryPack: RawDataInitable {
-    let pack: Array<GitHubRepository>
+struct GitHubRepositoryPack: Codable {
+    let items: Array<GitHubRepository>
+    let totalCount: Int
+    let incomplete: Bool
     
-    init?(json: [AnyHashable: Any]) {
-        pack = []
+    enum CodingKeys: String, CodingKey {
+        case items
+        case totalCount = "total_count"
+        case incomplete = "incomplete_results"
     }
 }
