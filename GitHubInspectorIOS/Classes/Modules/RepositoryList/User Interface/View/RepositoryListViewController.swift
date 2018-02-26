@@ -13,7 +13,7 @@ class RepositoryListViewController: UIViewController {
     weak var eventHandler: (AnyObject & RepositoryListModuleInterface)?
     fileprivate var data: RepositoryListDisplayData = RepositoryListDisplayData()
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,5 +51,12 @@ extension RepositoryListViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = repo.description
         cell.textLabel?.text = repo.name
         return cell
+    }
+}
+
+extension RepositoryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = data.repositories[indexPath.row]
+        eventHandler?.showDetails(of: repo)
     }
 }

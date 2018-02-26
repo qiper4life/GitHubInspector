@@ -11,4 +11,5 @@ import Foundation
 protocol RepositoryListModuleInterface {
     func updateView()
     func cancelSearh()
+    func showDetails(of repo: Repository)
 }

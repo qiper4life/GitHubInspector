@@ -14,6 +14,14 @@ struct GitHubRepository: Repository, Codable {
     var description: String?
     var url: URL
     var score: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case url = "html_url"
+        case score
+    }
 }
 
 extension GitHubRepository: Equatable {

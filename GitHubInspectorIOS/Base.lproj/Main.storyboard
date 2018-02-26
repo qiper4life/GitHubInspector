@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="jFC-qw-O3O">
@@ -55,6 +61,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="15" y="80"/>
+        </scene>
+        <!--Repository Details View Controller-->
+        <scene sceneID="aKD-no-RNu">
+            <objects>
+                <viewController storyboardIdentifier="RepositoryDetailsViewController" id="mCF-5a-d0e" customClass="RepositoryDetailsViewController" customModule="GitHubInspectorIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5PA-xT-XGa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBQ-By-cn5">
+                                <rect key="frame" x="4" y="111" width="375" height="445"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmk-hV-uks">
+                                        <rect key="frame" x="10" y="10" width="355" height="385"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-cy-DOB">
+                                        <rect key="frame" x="10" y="395" width="355" height="50"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="itJ-79-3G2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Go back">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressCloseButton:" destination="mCF-5a-d0e" eventType="touchUpInside" id="kQP-bJ-aFd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hXT-cy-DOB" firstAttribute="leading" secondItem="hBQ-By-cn5" secondAttribute="leading" constant="10" id="Ken-Hn-ejc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zmk-hV-uks" secondAttribute="trailing" constant="10" id="MUd-73-nAu"/>
+                                    <constraint firstAttribute="bottom" secondItem="hXT-cy-DOB" secondAttribute="bottom" id="V6H-4z-hQG"/>
+                                    <constraint firstItem="hXT-cy-DOB" firstAttribute="top" secondItem="Zmk-hV-uks" secondAttribute="bottom" id="b4Y-v2-Er6"/>
+                                    <constraint firstAttribute="trailing" secondItem="hXT-cy-DOB" secondAttribute="trailing" constant="10" id="fwO-GJ-mBo"/>
+                                    <constraint firstItem="Zmk-hV-uks" firstAttribute="leading" secondItem="hBQ-By-cn5" secondAttribute="leading" constant="10" id="twk-dE-q5y"/>
+                                    <constraint firstItem="Zmk-hV-uks" firstAttribute="top" secondItem="hBQ-By-cn5" secondAttribute="top" constant="10" id="yB9-UO-edF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hBQ-By-cn5" firstAttribute="leading" secondItem="GUO-sr-vd5" secondAttribute="leading" constant="4" id="8wd-rj-fFx"/>
+                            <constraint firstItem="hBQ-By-cn5" firstAttribute="height" secondItem="5PA-xT-XGa" secondAttribute="height" multiplier="2:3" id="9q8-vd-Vfh"/>
+                            <constraint firstItem="hBQ-By-cn5" firstAttribute="centerY" secondItem="5PA-xT-XGa" secondAttribute="centerY" id="GSL-Ol-gwb"/>
+                            <constraint firstItem="hBQ-By-cn5" firstAttribute="trailing" secondItem="GUO-sr-vd5" secondAttribute="trailing" constant="4" id="J7O-he-wZ9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GUO-sr-vd5"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Zmk-hV-uks" id="jqn-1q-r2g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhd-HU-5FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.6" y="791.15442278860576"/>
         </scene>
     </scenes>
 </document>

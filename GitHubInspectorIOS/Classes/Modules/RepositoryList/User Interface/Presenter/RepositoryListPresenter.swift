@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RepositoryListPresenter: RepositoryListModuleInterface {
+class RepositoryListPresenter {
     private let interactor: RepositoryListInteractorInput
     private let view: RepositoryListView
     private weak var wireframe: RepositoryListWireframe?
@@ -24,22 +24,25 @@ class RepositoryListPresenter: RepositoryListModuleInterface {
         self.wireframe = wireframe
         self.displayData = RepositoryListDisplayData()
     }
-    
+}
+
+extension RepositoryListPresenter: RepositoryListModuleInterface {
     func updateView() {
-        getNextPage()
-    }
-    
-    func getNextPage() {
         let request1 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
         counter += 1
         let request2 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
         counter += 1
         interactor.searchRepos(for: request1)
         interactor.searchRepos(for: request2)
+
     }
     
     func cancelSearh() {
         // implement
+    }
+    
+    func showDetails(of repo: Repository) {
+        wireframe?.presentRepositoryDetails(for: repo)
     }
 }
 
