@@ -41,22 +41,26 @@ extension RepositoryListViewController: RepositoryListView {
 }
 
 extension RepositoryListViewController: UITableViewDataSource {
+    static let repositoryCellIdentifier = "RepositorySearchResultCell"
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.repositories.count
+        return self.data.count()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let repo = self.data.repositories[indexPath.row]
-        let cell = UITableViewCell()
-        cell.detailTextLabel?.text = repo.description
-        cell.textLabel?.text = repo.name
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryListViewController.repositoryCellIdentifier, for: indexPath)
+        guard let searchResultCell = cell as? RepositorySearchResultCell else {
+            return UITableViewCell()
+        }
+        let displayRepository = self.data[indexPath.row]
+        searchResultCell.configure(displayRepository: displayRepository)
+        return searchResultCell
     }
 }
 
 extension RepositoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let repo = data.repositories[indexPath.row]
-        eventHandler?.showDetails(of: repo)
+        let repository = data.repository(index: indexPath.row)
+        eventHandler?.showDetails(of: repository)
     }
 }

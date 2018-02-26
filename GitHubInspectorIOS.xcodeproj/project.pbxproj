@@ -28,6 +28,8 @@
 		3754B78E204387A2009A4E2F /* RepositoryDetailsModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B78D204387A2009A4E2F /* RepositoryDetailsModuleInterface.swift */; };
 		3754B79120438AE6009A4E2F /* RepositoryDetailsInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79020438AE6009A4E2F /* RepositoryDetailsInterector.swift */; };
 		3754B79320438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79220438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift */; };
+		3754B79620439AE8009A4E2F /* RepositorySearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79520439AE8009A4E2F /* RepositorySearchResultCell.swift */; };
+		3754B79820439B80009A4E2F /* RepositorySearchResultDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79720439B80009A4E2F /* RepositorySearchResultDisplayData.swift */; };
 		378A1B0D2042F0590078FF0D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0C2042F0590078FF0D /* Repository.swift */; };
 		378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */; };
 		378A1B152042F1A30078FF0D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B142042F1A30078FF0D /* Request.swift */; };
@@ -76,6 +78,8 @@
 		3754B78D204387A2009A4E2F /* RepositoryDetailsModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsModuleInterface.swift; sourceTree = "<group>"; };
 		3754B79020438AE6009A4E2F /* RepositoryDetailsInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsInterector.swift; sourceTree = "<group>"; };
 		3754B79220438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsInterectorIO.swift; sourceTree = "<group>"; };
+		3754B79520439AE8009A4E2F /* RepositorySearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchResultCell.swift; sourceTree = "<group>"; };
+		3754B79720439B80009A4E2F /* RepositorySearchResultDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchResultDisplayData.swift; sourceTree = "<group>"; };
 		378A1B0C2042F0590078FF0D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		378A1B142042F1A30078FF0D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				3754B767204348D9009A4E2F /* RepositoryListPresenter.swift */,
 				3754B76C20434DB9009A4E2F /* RepositoryListDisplayData.swift */,
+				3754B79720439B80009A4E2F /* RepositorySearchResultDisplayData.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				3754B76A20434C4D009A4E2F /* RepositoryListView.swift */,
 				3754B7702043673A009A4E2F /* RepositoryListViewController.swift */,
+				3754B79520439AE8009A4E2F /* RepositorySearchResultCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -655,6 +661,8 @@
 				3754B76120434427009A4E2F /* RepositoryProvider.swift in Sources */,
 				3754B78B20438762009A4E2F /* RepositoryDetailsPresenter.swift in Sources */,
 				3754B77A20438111009A4E2F /* RootWireframe.swift in Sources */,
+				3754B79620439AE8009A4E2F /* RepositorySearchResultCell.swift in Sources */,
+				3754B79820439B80009A4E2F /* RepositorySearchResultDisplayData.swift in Sources */,
 				378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */,
 				378A1B26204308F90078FF0D /* GitHubRepositoryPack.swift in Sources */,
 				3754B786204384CF009A4E2F /* RepositoryDetailsViewController.swift in Sources */,
