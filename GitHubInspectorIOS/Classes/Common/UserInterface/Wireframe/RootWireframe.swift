@@ -11,9 +11,7 @@ import UIKit
 
 class RootWireframe {
     func showRoot(viewController: UIViewController, from window: UIWindow) {
-        guard let navigationController = window.rootViewController as? UINavigationController else {
-            fatalError("Expected to have `UINavigationController` in \(window) rootViewController got: \(window.rootViewController!)")
-        }
+        let navigationController = window.rootViewController as! UINavigationController
         navigationController.viewControllers = [viewController]
     }
 }

@@ -9,16 +9,19 @@
 import Foundation
 
 class RepositoryListPresenter: RepositoryListModuleInterface {
-    let interactor: RepositoryListInteractorInput
-    let view: RepositoryListView
-    private var displayData: RepositoryListDisplayData
+    private let interactor: RepositoryListInteractorInput
+    private let view: RepositoryListView
+    private weak var wireframe: RepositoryListWireframe?
     
-    var counter: Int = 0
+    private var displayData: RepositoryListDisplayData
+    private var counter: Int = 0
     
     init(interector: RepositoryListInteractorInput,
-         view: RepositoryListView) {
+         view: RepositoryListView,
+         wireframe: RepositoryListWireframe) {
         self.interactor = interector
         self.view = view
+        self.wireframe = wireframe
         self.displayData = RepositoryListDisplayData()
     }
     

@@ -14,19 +14,25 @@ class RepositoryListWireframe {
     private var presenter: RepositoryListPresenter!
     
     func showRepositoryListView(from window: UIWindow) {
-        let view = storyboard().instantiateViewController(withIdentifier: "RepositoryListViewController") as! RepositoryListViewController
+        let view = repositoryListViewController()
         let reposProvider: RepositoryProvider = GitHubRepositoryProvider() // for now
         let interector = RepositoryListInteractor(repositoryProvider: reposProvider)
-        let presenter = RepositoryListPresenter(interector: interector, view: view)
+        let presenter = RepositoryListPresenter(interector: interector,
+                                                view: view,
+                                                wireframe: self)
         interector.output = presenter
         self.presenter = presenter
         view.eventHandler = presenter
         rootWireframe.showRoot(viewController: view, from: window)
     }
     
+    private func repositoryListViewController() -> RepositoryListViewController {
+        let repositoryListViewController = storyboard().instantiateViewController(withIdentifier: "RepositoryListViewController")
+        return repositoryListViewController as! RepositoryListViewController
+    }
+    
     private func storyboard() -> UIStoryboard {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         return storyboard
     }
-
 }
