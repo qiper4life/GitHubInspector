@@ -11,21 +11,26 @@ import Foundation
 /// View
 protocol LoginView: class {
     /// presenter listener
+    func loginFailed()
+    func loginSucceded()
 }
 
 /// Presenter
 protocol LoginModuleInterface: class {
-    // view & wireframe listener
+    func performLogin()
     func continueLogin()
 }
 
 /// Presenter
 protocol LoginInteractorOutput: class {
     // interactor listener
+    func loginSucceded()
+    func loginFailed()
 }
 
 /// Interecator
 protocol LoginInteractorInput {
+    func loginUser()
     // presenter listener
 }
 

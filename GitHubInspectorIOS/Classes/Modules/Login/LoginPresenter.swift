@@ -9,7 +9,6 @@
 import Foundation
 
 class LoginPresenter: LoginModuleInterface, LoginInteractorOutput {
-
     weak var wireframe: LoginWireframe?
     let view: LoginView
     let interactor: LoginInteractorInput
@@ -22,7 +21,20 @@ class LoginPresenter: LoginModuleInterface, LoginInteractorOutput {
         self.interactor = interactor
     }
     
+    func performLogin() {
+        interactor.loginUser()
+    }
+    
     func continueLogin() {
         self.wireframe?.showRepositoriesList()
     }
+    
+    func loginSucceded() {
+        view.loginSucceded()
+    }
+    
+    func loginFailed() {
+        view.loginFailed()
+    }
+    
 }
