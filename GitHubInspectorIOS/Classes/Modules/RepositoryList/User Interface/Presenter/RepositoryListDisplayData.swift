@@ -11,20 +11,14 @@ import Foundation
 class RepositoryListDisplayData {
     private let syncQueue = DispatchQueue(label: "com.vladimirWowan.GitHubInspectorIOS.SynchronizedDisplayData",
                                           attributes: .concurrent)
-    /// Write into this property
     private var _repositories: [Repository] = []
-    /// Read this property
     private var repositories: [Repository] {
-        var repos: [Repository]!
-        syncQueue.sync {
-            repos = self._repositories
-        }
-        return repos
+        return syncQueue.sync { _repositories }
     }
     
     func addRepositories(_ repositories: [Repository]) {
-        syncQueue.async(flags: .barrier) {
-            self._repositories.append(contentsOf: repositories)
+        syncQueue.async(flags: .barrier) { [weak self] in
+            self?._repositories.append(contentsOf: repositories)
         }
     }
     

@@ -13,7 +13,7 @@ class RepositoryListPresenter {
     private let view: RepositoryListView
     private weak var wireframe: RepositoryListWireframe?
     
-    private var displayData: RepositoryListDisplayData
+    private var repositories: RepositoryListDisplayData
     private var counter: Int = 0
     
     init(interector: RepositoryListInteractorInput,
@@ -22,19 +22,18 @@ class RepositoryListPresenter {
         self.interactor = interector
         self.view = view
         self.wireframe = wireframe
-        self.displayData = RepositoryListDisplayData()
+        self.repositories = RepositoryListDisplayData()
     }
 }
 
 extension RepositoryListPresenter: RepositoryListModuleInterface {
-    func updateView() {
+    func loadNewPage() {
         let request1 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
         counter += 1
         let request2 = GitHubRepositorySearchRequest(query: "tetris", page: counter)
         counter += 1
         interactor.searchRepos(for: request1)
         interactor.searchRepos(for: request2)
-
     }
     
     func cancelSearh() {
@@ -48,8 +47,8 @@ extension RepositoryListPresenter: RepositoryListModuleInterface {
 
 extension RepositoryListPresenter: RepositoryListInteractorOutput {
     func foundRepos(_ repos: [Repository], for request: RepositorySearchRequest) {
-        self.displayData.addRepositories(repos)
-        view.showData(displayData)
+        repositories.addRepositories(repos)
+        view.showRepositories(repositories)
     }
     
     func errorWhileLookingForRepos(_ error: Error, for request: RepositorySearchRequest) {

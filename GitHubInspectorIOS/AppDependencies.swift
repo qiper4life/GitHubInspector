@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct AppDependencies {
-    let reposListWireframe: RepositoryListWireframe
-    
-    init() {
-        self.reposListWireframe = RepositoryListWireframe()
-    }
+class AppDependencies {
+    let rootWireframe = RootWireframe()
 }

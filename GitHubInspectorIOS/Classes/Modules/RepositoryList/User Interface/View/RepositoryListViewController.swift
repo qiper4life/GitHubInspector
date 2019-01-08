@@ -11,20 +11,20 @@ import UIKit
 
 class RepositoryListViewController: UIViewController {
     weak var eventHandler: (AnyObject & RepositoryListModuleInterface)?
-    fileprivate var data: RepositoryListDisplayData = RepositoryListDisplayData()
+    fileprivate var repositories: RepositoryListDisplayData = RepositoryListDisplayData()
     
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventHandler?.updateView()
+        eventHandler?.loadNewPage()
     }
 }
 
 extension RepositoryListViewController: RepositoryListView {
-    func showData(_ data: RepositoryListDisplayData) {
+    func showRepositories(_ repositories: RepositoryListDisplayData) {
         DispatchQueue.main.async {
-            self.data = data
+            self.repositories = repositories
             self.tableView.reloadData()
         }
     }
@@ -44,7 +44,7 @@ extension RepositoryListViewController: UITableViewDataSource {
     static let repositoryCellIdentifier = "RepositorySearchResultCell"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count()
+        return repositories.count()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,15 +52,21 @@ extension RepositoryListViewController: UITableViewDataSource {
         guard let searchResultCell = cell as? RepositorySearchResultCell else {
             return UITableViewCell()
         }
-        let displayRepository = self.data[indexPath.row]
-        searchResultCell.configure(displayRepository: displayRepository)
+        let repository = repositories[indexPath.row]
+        searchResultCell.configure(displayRepository: repository)
         return searchResultCell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row == self.tableView(tableView, numberOfRowsInSection: indexPath.section) - 1) {
+            eventHandler?.loadNewPage()
+        }
     }
 }
 
 extension RepositoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let repository = data.repository(index: indexPath.row)
+        let repository = repositories.repository(index: indexPath.row)
         eventHandler?.showDetails(of: repository)
     }
 }

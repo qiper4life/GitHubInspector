@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 class RepositoryListWireframe {
-    private let rootWireframe = RootWireframe()
+    
     private let repoDetailsWireframe = RepositoryDetailsWireframe()
     private var presenter: RepositoryListPresenter?
     
     private var repositoryListViewController: UIViewController?
-    func showRepositoryListView(from window: UIWindow) {
+    func showRepositoryListView(from nc: UINavigationController) {
         let view = makeRepositoryListViewController()
         let reposProvider: RepositoryProvider = GitHubRepositoryProvider() // for now
         let interector = RepositoryListInteractor(repositoryProvider: reposProvider)
@@ -25,7 +25,7 @@ class RepositoryListWireframe {
         interector.output = presenter
         self.presenter = presenter
         view.eventHandler = presenter
-        rootWireframe.showRoot(viewController: view, from: window)
+        nc.pushViewController(view, animated: true)
         repositoryListViewController = view
     }
     

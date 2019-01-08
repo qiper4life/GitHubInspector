@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let dependencies = AppDependencies()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        dependencies.reposListWireframe.showRepositoryListView(from: window!)
+        dependencies.rootWireframe.showLogin(from: window!)
         return true
     }
 

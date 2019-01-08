@@ -9,6 +9,6 @@
 import Foundation
 
 protocol RepositoryListView {
-    func showData(_ data: RepositoryListDisplayData)
+    func showRepositories(_ repositories: RepositoryListDisplayData)
     func showError(_ error: Error)
 }

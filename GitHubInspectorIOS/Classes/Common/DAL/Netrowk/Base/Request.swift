@@ -44,11 +44,7 @@ extension Request where Response: Codable {
             let response = try jsonDecoder.decode(Response.self, from: data)
             return response
         } catch {
-            #if DEBUG
-                fatalError("Couldn't parse results of expected type \(Response.self) with error: \(error)")
-            #else
-                return nil
-            #endif
+            return nil
         }
     }
 }

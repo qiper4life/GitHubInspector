@@ -30,6 +30,11 @@
 		3754B79320438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79220438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift */; };
 		3754B79620439AE8009A4E2F /* RepositorySearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79520439AE8009A4E2F /* RepositorySearchResultCell.swift */; };
 		3754B79820439B80009A4E2F /* RepositorySearchResultDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B79720439B80009A4E2F /* RepositorySearchResultDisplayData.swift */; };
+		3763A77C21E4BC110053446A /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763A77B21E4BC110053446A /* LoginWireframe.swift */; };
+		3763A77E21E4BD620053446A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763A77D21E4BD620053446A /* LoginViewController.swift */; };
+		3763A78021E4E8820053446A /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763A77F21E4E8820053446A /* LoginModule.swift */; };
+		3763A78221E4F2720053446A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763A78121E4F2720053446A /* LoginPresenter.swift */; };
+		3763A78421E4F27C0053446A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763A78321E4F27C0053446A /* LoginInteractor.swift */; };
 		378A1B0D2042F0590078FF0D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0C2042F0590078FF0D /* Repository.swift */; };
 		378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */; };
 		378A1B152042F1A30078FF0D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A1B142042F1A30078FF0D /* Request.swift */; };
@@ -80,6 +85,11 @@
 		3754B79220438AF2009A4E2F /* RepositoryDetailsInterectorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsInterectorIO.swift; sourceTree = "<group>"; };
 		3754B79520439AE8009A4E2F /* RepositorySearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchResultCell.swift; sourceTree = "<group>"; };
 		3754B79720439B80009A4E2F /* RepositorySearchResultDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchResultDisplayData.swift; sourceTree = "<group>"; };
+		3763A77B21E4BC110053446A /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
+		3763A77D21E4BD620053446A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3763A77F21E4E8820053446A /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
+		3763A78121E4F2720053446A /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		3763A78321E4F27C0053446A /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		378A1B0C2042F0590078FF0D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		378A1B0E2042F0E60078FF0D /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		378A1B142042F1A30078FF0D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 		3754B75520432CDE009A4E2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3763A77A21E4BBFF0053446A /* Login */,
 				3754B75620432CEC009A4E2F /* RepositoryList */,
 				3754B77F2043845A009A4E2F /* RepositoryDetails */,
 			);
@@ -313,6 +324,18 @@
 			path = Interector;
 			sourceTree = "<group>";
 		};
+		3763A77A21E4BBFF0053446A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3763A77B21E4BC110053446A /* LoginWireframe.swift */,
+				3763A77F21E4E8820053446A /* LoginModule.swift */,
+				3763A77D21E4BD620053446A /* LoginViewController.swift */,
+				3763A78121E4F2720053446A /* LoginPresenter.swift */,
+				3763A78321E4F27C0053446A /* LoginInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		378A1B082042F0210078FF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,16 +370,8 @@
 			isa = PBXGroup;
 			children = (
 				378A1B122042F1680078FF0D /* Netrowk */,
-				378A1B112042F1620078FF0D /* Storage */,
 			);
 			path = DAL;
-			sourceTree = "<group>";
-		};
-		378A1B112042F1620078FF0D /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storage;
 			sourceTree = "<group>";
 		};
 		378A1B122042F1680078FF0D /* Netrowk */ = {
@@ -665,10 +680,14 @@
 				3754B79820439B80009A4E2F /* RepositorySearchResultDisplayData.swift in Sources */,
 				378A1B0F2042F0E60078FF0D /* GitHubRepository.swift in Sources */,
 				378A1B26204308F90078FF0D /* GitHubRepositoryPack.swift in Sources */,
+				3763A78421E4F27C0053446A /* LoginInteractor.swift in Sources */,
 				3754B786204384CF009A4E2F /* RepositoryDetailsViewController.swift in Sources */,
+				3763A78221E4F2720053446A /* LoginPresenter.swift in Sources */,
 				3754B7712043673A009A4E2F /* RepositoryListViewController.swift in Sources */,
+				3763A77C21E4BC110053446A /* LoginWireframe.swift in Sources */,
 				3754B76D20434DB9009A4E2F /* RepositoryListDisplayData.swift in Sources */,
 				3754B75C2043434A009A4E2F /* RepositoryListInteractorIO.swift in Sources */,
+				3763A78021E4E8820053446A /* LoginModule.swift in Sources */,
 				378A1B152042F1A30078FF0D /* Request.swift in Sources */,
 				3754B78E204387A2009A4E2F /* RepositoryDetailsModuleInterface.swift in Sources */,
 				3754B7632043448E009A4E2F /* GitHubRepositoryProvider.swift in Sources */,
@@ -677,6 +696,7 @@
 				3754B77C20438253009A4E2F /* AppDependencies.swift in Sources */,
 				3754B75E2043435B009A4E2F /* RepositoryListInteractor.swift in Sources */,
 				3754B765204344EB009A4E2F /* RepositorySearchRequest.swift in Sources */,
+				3763A77E21E4BD620053446A /* LoginViewController.swift in Sources */,
 				3754B768204348D9009A4E2F /* RepositoryListPresenter.swift in Sources */,
 				3754B77820437E69009A4E2F /* RepositoryListWireframe.swift in Sources */,
 				378A1B202042FAE70078FF0D /* GitHubApiClient.swift in Sources */,
@@ -847,6 +867,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirWowan.GitHubInspectorIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -863,6 +884,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirWowan.GitHubInspectorIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
