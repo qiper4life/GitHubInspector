@@ -29,7 +29,8 @@ class LoginPresenter: LoginModuleInterface, LoginInteractorOutput {
         self.wireframe?.showRepositoriesList()
     }
     
-    func loginSucceded() {
+    func loginSucceded(token: String) {
+        AppDependencies.shared.gitAccount.token = token
         view.loginSucceded()
     }
     

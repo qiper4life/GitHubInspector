@@ -29,8 +29,6 @@ class LoginInteractor: LoginInteractorInput {
     }
     
     func loginUser() {
-//        let user = "qiper4life"
-//        let url = URL(string: "https://github.com/login/oauth/authorize?scope=\(user)&client_id=\(clientID)")!
         let url = URL(string: "https://github.com/login/oauth/authorize?client_id=\(clientID)")!
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
@@ -69,9 +67,7 @@ class LoginInteractor: LoginInteractorInput {
                     self.output?.loginFailed() // Failed to parse response
                     return
             }
-            // Got token
-            print(accessToken)
-            self.output?.loginSucceded()
+            self.output?.loginSucceded(token: accessToken)
         }
         task.resume()
     }

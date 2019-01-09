@@ -93,6 +93,11 @@ class LoginViewController: UIViewController, LoginView {
         layer.timeOffset = pausedTime
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppDependencies.shared.gitAccount.token = nil
+    }
+    
     func resumeLayer(_ layer: CALayer) {
         let pausedTime = layer.timeOffset
         layer.speed = 1
@@ -100,6 +105,46 @@ class LoginViewController: UIViewController, LoginView {
         layer.beginTime = 0
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         layer.beginTime = timeSincePause
+    }
+}
+
+extension LoginViewController {
+    override var description: String {
+        let lyrics =
+        """
+I'm too sexy for my love
+Too sexy for my love
+Love's going to leave me
+I'm too sexy for my shirt
+Too sexy for my shirt
+So sexy it hurts
+And I'm too sexy for Milan
+Too sexy for Milan
+New York, and Japan
+I'm too sexy for your party
+Too sexy for your party
+No way I'm disco dancing
+'Cause I'm a model, you know what I mean
+And I do my little turn on the catwalk
+Yeah, on the catwalk
+On the catwalk, yeah
+I shake my little tush on the catwalk
+I'm too sexy for my car
+Too sexy for my car
+Too sexy by far
+And I'm too sexy for my hat
+Too sexy for my hat
+What do you think about that?
+'Cause I'm a model, you know what I mean
+And I do my little turn on the catwalk
+Yeah, on the catwalk
+On the catwalk, yeah
+I shake my little tush on the catwalk
+Too sexy for my
+Too sexy for my
+Too…
+"""
+        return lyrics
     }
 }
 
@@ -118,8 +163,11 @@ extension LoginViewController: CALayerDelegate {
     func startAnimationAct1() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let window = appDelegate?.window!
-        let newRocketCircleFrame = self.view.convert(gitLogoImageView.frame, to: window)
-        
+        var newRocketCircleFrame = self.view.convert(gitLogoImageView.frame, to: window)
+        newRocketCircleFrame.origin.x = newRocketCircleFrame.origin.x - 30
+        newRocketCircleFrame.origin.y = newRocketCircleFrame.origin.y - 30
+        newRocketCircleFrame.size.width = newRocketCircleFrame.size.width + 60
+        newRocketCircleFrame.size.height = newRocketCircleFrame.size.height + 60
         let rocketFrame = CGRect(origin: newRocketCircleFrame.origin, size: CGSize(width: 80, height: 40))
         let rocketImageView = UIImageView(frame: rocketFrame)
         rocketImageView.image = UIImage(named: "Rocket")
@@ -141,17 +189,30 @@ extension LoginViewController: CALayerDelegate {
     
     func startAnimationAct2() {
         let layer = rocket!.layer
+        self.rocket?.layer.removeAnimation(forKey: "orbit")
         
         CATransaction.begin()
-        let flyAway = CABasicAnimation(keyPath: "transform.rotation")
-        flyAway.fromValue = layer.presentation()?.value(forKeyPath: "transform.rotation")
-        flyAway.toValue = -Double.pi
-        flyAway.duration = 1.0
+//        layer.setAffineTransform(CGAffineTransform.init(rotationAngle: CGFloat(Double.pi * 1.25)))
+        let flyAwayRotation = CABasicAnimation(keyPath: "transform.rotation")
+        
+        flyAwayRotation.fromValue = layer.presentation()?.value(forKeyPath: "transform.rotation")
+        flyAwayRotation.toValue = Double.pi * 1.25
+        flyAwayRotation.timingFunction = CAMediaTimingFunction.init(controlPoints: 0.5, 0, 0.9, 0.7) //[CAMediaTimingFunction functionWithControlPoints:0.5:0:0.9:0.7];
+        flyAwayRotation.repeatCount = 1
+        flyAwayRotation.duration = 0.3
+        
+        let flyAwayPosition = CABasicAnimation(keyPath: "position")
+        flyAwayPosition.fromValue = layer.presentation()?.value(forKeyPath: "position")
+        let size = UIScreen.main.bounds.size
+        flyAwayPosition.toValue = NSValue(cgPoint:(CGPoint(x: size.width, y: size.height)))
+        flyAwayPosition.timingFunction = CAMediaTimingFunction.init(controlPoints: 0.5, 0, 0.9, 0.7)
         
         CATransaction.setCompletionBlock { [weak self] in
             self?.removeRocket()
         }
-        self.rocket?.layer.removeAnimation(forKey: "orbit")
+        let flyAway = CAAnimationGroup()
+        flyAway.animations = [flyAwayRotation, flyAwayPosition]
+        flyAway.duration = 0.6
         layer.add(flyAway, forKey: "flyAway")
         CATransaction.commit()
         self.currentAnimationState = .flyawayAct2(flyAway, "flyAway")
@@ -168,7 +229,7 @@ extension LoginViewController: CALayerDelegate {
         let failure = CABasicAnimation(keyPath: "transform.rotation")
         failure.fromValue = 0.0
         failure.toValue = Double.pi
-        failure.duration = 1.0
+        failure.duration = 3.0
         
         CATransaction.setCompletionBlock { [weak self] in
             self?.removeRocket()

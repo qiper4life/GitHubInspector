@@ -64,6 +64,9 @@ extension GitHubRepositorySearchRequest: Request {
         params["order"] = order
         params["page"] = "\(page)"
         params["per_page"] = "\(perPage)"
+        if let token = AppDependencies.shared.gitAccount.token {
+            params["access_token"] = token
+        }
         return params
     }
 }

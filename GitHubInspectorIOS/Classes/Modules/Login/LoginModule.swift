@@ -24,7 +24,7 @@ protocol LoginModuleInterface: class {
 /// Presenter
 protocol LoginInteractorOutput: class {
     // interactor listener
-    func loginSucceded()
+    func loginSucceded(token: String)
     func loginFailed()
 }
 

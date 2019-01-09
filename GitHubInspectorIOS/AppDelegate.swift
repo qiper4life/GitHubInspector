@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let dependencies = AppDependencies()
+    let dependencies = AppDependencies.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let thing = NSThing()
+        thing.someStrangeActivity()
         dependencies.rootWireframe.showLogin(from: window!)
         return true
     }

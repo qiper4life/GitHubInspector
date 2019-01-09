@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1FF0CEA77216571B843BE182 /* Pods_GitHubInspectorIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD5668FD33EC403D3E9E139 /* Pods_GitHubInspectorIOSTests.framework */; };
+		3752A15421E5888D00CADBC4 /* ReallyStrangeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752A15321E5888D00CADBC4 /* ReallyStrangeType.m */; };
+		3752A15721E588A000CADBC4 /* NSThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752A15621E588A000CADBC4 /* NSThing.m */; };
 		3754B75C2043434A009A4E2F /* RepositoryListInteractorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B75B2043434A009A4E2F /* RepositoryListInteractorIO.swift */; };
 		3754B75E2043435B009A4E2F /* RepositoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B75D2043435B009A4E2F /* RepositoryListInteractor.swift */; };
 		3754B76120434427009A4E2F /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754B76020434427009A4E2F /* RepositoryProvider.swift */; };
@@ -63,6 +65,11 @@
 
 /* Begin PBXFileReference section */
 		02262E2EE02980F1ED942025 /* Pods-GitHubInspectorIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubInspectorIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubInspectorIOS/Pods-GitHubInspectorIOS.release.xcconfig"; sourceTree = "<group>"; };
+		3752A15121E5888C00CADBC4 /* GitHubInspectorIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubInspectorIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		3752A15221E5888D00CADBC4 /* ReallyStrangeType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReallyStrangeType.h; sourceTree = "<group>"; };
+		3752A15321E5888D00CADBC4 /* ReallyStrangeType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReallyStrangeType.m; sourceTree = "<group>"; };
+		3752A15521E588A000CADBC4 /* NSThing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSThing.h; sourceTree = "<group>"; };
+		3752A15621E588A000CADBC4 /* NSThing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSThing.m; sourceTree = "<group>"; };
 		3754B75B2043434A009A4E2F /* RepositoryListInteractorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListInteractorIO.swift; sourceTree = "<group>"; };
 		3754B75D2043435B009A4E2F /* RepositoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListInteractor.swift; sourceTree = "<group>"; };
 		3754B76020434427009A4E2F /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
@@ -145,12 +152,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3752A15821E588F600CADBC4 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				3752A15521E588A000CADBC4 /* NSThing.h */,
+				3752A15621E588A000CADBC4 /* NSThing.m */,
+				3752A15221E5888D00CADBC4 /* ReallyStrangeType.h */,
+				3752A15321E5888D00CADBC4 /* ReallyStrangeType.m */,
+			);
+			path = Objc;
+			sourceTree = "<group>";
+		};
 		3754B75520432CDE009A4E2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				3763A77A21E4BBFF0053446A /* Login */,
 				3754B75620432CEC009A4E2F /* RepositoryList */,
 				3754B77F2043845A009A4E2F /* RepositoryDetails */,
+				3752A15121E5888C00CADBC4 /* GitHubInspectorIOS-Bridging-Header.h */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -444,6 +463,7 @@
 				378A1B082042F0210078FF0D /* Classes */,
 				378E51B1203CD99500BE736D /* AppDelegate.swift */,
 				3754B77B20438253009A4E2F /* AppDependencies.swift */,
+				3752A15821E588F600CADBC4 /* Objc */,
 				378E51B5203CD99500BE736D /* Main.storyboard */,
 				378E51B8203CD99500BE736D /* Assets.xcassets */,
 				378E51BA203CD99500BE736D /* LaunchScreen.storyboard */,
@@ -526,6 +546,7 @@
 				TargetAttributes = {
 					378E51AD203CD99500BE736D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					378E51C1203CD99500BE736D = {
@@ -697,10 +718,12 @@
 				3754B75E2043435B009A4E2F /* RepositoryListInteractor.swift in Sources */,
 				3754B765204344EB009A4E2F /* RepositorySearchRequest.swift in Sources */,
 				3763A77E21E4BD620053446A /* LoginViewController.swift in Sources */,
+				3752A15721E588A000CADBC4 /* NSThing.m in Sources */,
 				3754B768204348D9009A4E2F /* RepositoryListPresenter.swift in Sources */,
 				3754B77820437E69009A4E2F /* RepositoryListWireframe.swift in Sources */,
 				378A1B202042FAE70078FF0D /* GitHubApiClient.swift in Sources */,
 				3754B76F2043658D009A4E2F /* RepositoryListModuleInterface.swift in Sources */,
+				3752A15421E5888D00CADBC4 /* ReallyStrangeType.m in Sources */,
 				3754B78820438587009A4E2F /* RepositoryDetailsWireframe.swift in Sources */,
 				3754B79120438AE6009A4E2F /* RepositoryDetailsInterector.swift in Sources */,
 				378A1B1E2042FAC90078FF0D /* Result.swift in Sources */,
@@ -861,6 +884,7 @@
 			baseConfigurationReference = 83DC2A50FEA77C64A2178839 /* Pods-GitHubInspectorIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 428PZ7ZV7E;
 				INFOPLIST_FILE = GitHubInspectorIOS/Info.plist;
@@ -868,6 +892,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirWowan.GitHubInspectorIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "GitHubInspectorIOS/Classes/Modules/GitHubInspectorIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -878,6 +904,7 @@
 			baseConfigurationReference = 02262E2EE02980F1ED942025 /* Pods-GitHubInspectorIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 428PZ7ZV7E;
 				INFOPLIST_FILE = GitHubInspectorIOS/Info.plist;
@@ -885,6 +912,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirWowan.GitHubInspectorIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "GitHubInspectorIOS/Classes/Modules/GitHubInspectorIOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
