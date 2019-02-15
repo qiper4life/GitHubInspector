@@ -46,7 +46,7 @@
                                 </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="continueButtonPressed:" destination="kaQ-cr-BYm" eventType="touchUpInside" id="dcE-aX-tMQ"/>
+                                    <action selector="startButtonPressed:" destination="kaQ-cr-BYm" eventType="touchUpInside" id="08R-jc-Aud"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, LoginView {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
     }
     
-    @IBAction func continueButtonPressed(_ sender: Any) {
+    @IBAction func startButtonPressed(_ sender: Any) {
         startAnimationAct1()
         presenter?.performLogin()
     }
