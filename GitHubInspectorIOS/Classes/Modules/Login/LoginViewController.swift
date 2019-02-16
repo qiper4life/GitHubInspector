@@ -192,7 +192,7 @@ extension LoginViewController: CALayerDelegate {
         self.rocket?.layer.removeAnimation(forKey: "orbit")
         
         CATransaction.begin()
-//        layer.setAffineTransform(CGAffineTransform.init(rotationAngle: CGFloat(Double.pi * 1.25)))
+        layer.setAffineTransform(CGAffineTransform.init(rotationAngle: CGFloat(Double.pi * 1.25)))
         let flyAwayRotation = CABasicAnimation(keyPath: "transform.rotation")
         
         flyAwayRotation.fromValue = layer.presentation()?.value(forKeyPath: "transform.rotation")
